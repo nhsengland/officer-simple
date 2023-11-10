@@ -1,4 +1,6 @@
-# output charts into powerpoint slides
+# This script sources a very simple data import and plot and exports to a powerpoint slide
+# The slide is based on a master .pptx file saved in the output folder
+# November 2023
 
 # load packages and data --------------------------------------------------
 source("helper/plot_file.R")
