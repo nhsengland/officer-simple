@@ -1,4 +1,6 @@
-# data are public from https://www.england.nhs.uk/statistics/statistical-work-areas/ae-waiting-times-and-activity/ae-attendances-and-emergency-admissions-2023-24/
+# This script imports some A&E data and plots a very simple bar chart
+# data are public 
+# November 2023
 
 library(tidyverse)
 library(officer)
