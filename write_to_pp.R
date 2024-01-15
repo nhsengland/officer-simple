@@ -10,6 +10,7 @@ message("Data Loaded")
 
 team_str <- "South East PAT"
 email_str <- "england.datasouth@nhs.net"
+latest_data <- "September 2023"
 
 doc <- read_pptx("output/pp_master.pptx")
 
@@ -28,8 +29,42 @@ doc <- ph_with(doc, "An example subtitle", location = ph_location_label(ph_label
 doc <- ph_with(doc, 
                "Some example text \n Could be replaced with automated commentary", 
                location = ph_location_label(ph_label = "Narrative"))
-doc <- ph_with(doc, "Source: published monthly sitrep data", location = ph_location_label(ph_label = "Source"))
+doc <- ph_with(doc, paste0("Source: published monthly sitrep data up to ", latest_data), location = ph_location_label(ph_label = "Source"))
 doc <- ph_with(doc, paste("Code run on ", format(Sys.Date(), "%d %b %y")), location = ph_location_label(ph_label = "Data up to"))
 
 # Save file
 print(doc, target = paste0("output/iterations/", format(Sys.Date(), "%Y%m%d"), " Powerpoint Pack.pptx", sep =""))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# another slide -----------------------------------------------------------
+doc <- add_slide(doc, layout = "Appendix", master = "Custom Design")
+doc <- ph_with(doc, "Putting things in different places", location = ph_location_label(ph_label = "Subtitle"))
+doc <- ph_with(doc, "Different layout", location = ph_location_label(ph_label = "Title"))
+doc <- ph_with(doc, plot1, location = ph_location_label(ph_label = "Plot"))
