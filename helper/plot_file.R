@@ -5,6 +5,7 @@
 library(tidyverse)
 library(officer)
 library(NHSRtheme)
+library(flextable)
 
 df_ae <- read_csv("data/Monthly-AE-September-2023.csv")
 
@@ -32,3 +33,16 @@ plot1 <- data1 %>%
 commentary1 <- paste0("There were ", 
                       data1 %>% filter(region == "SOUTH EAST") %>% select(t1_attendances) %>% .[[1]], 
                       " Type 1 attendances in the South East in September 2023.")
+
+# table -------------------------------------------------------------------
+
+table1 <- data1 %>% 
+  rename(Region = region, 
+         `Type 1 Attendances` = t1_attendances) %>% 
+  flextable(cwidth = 1.75) %>% 
+  bold(part = "header") %>% 
+  bold(~Region == "TOTAL") %>% 
+  add_footer_lines("Type 1 attendances by region, September 2023") %>% 
+  color(~Region == "SOUTH EAST", color = "red")
+
+            
