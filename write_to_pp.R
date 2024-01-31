@@ -21,7 +21,7 @@ doc <- ph_with(doc, paste("Published ", format(Sys.Date(), "%d %b %y")), locatio
 doc <- ph_with(doc, team_str, location = ph_location_label(ph_label = "Produced by"))
 doc <- ph_with(doc, email_str, location = ph_location_label(ph_label = "Email"))
 
-# add region slide
+# add chart slide
 doc <- add_slide(doc, layout = "Charts", master = "Custom Design")
 doc <- ph_with(doc, plot1, location = ph_location_label(ph_label = "Chart"))
 doc <- ph_with(doc, "An example plot", location = ph_location_label(ph_label = "Title"))
@@ -36,35 +36,3 @@ doc <- ph_with(doc, paste("Code run on ", format(Sys.Date(), "%d %b %y")), locat
 print(doc, target = paste0("output/iterations/", format(Sys.Date(), "%Y%m%d"), " Powerpoint Pack.pptx", sep =""))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# another slide -----------------------------------------------------------
-doc <- add_slide(doc, layout = "Appendix", master = "Custom Design")
-doc <- ph_with(doc, "Putting things in different places", location = ph_location_label(ph_label = "Subtitle"))
-doc <- ph_with(doc, "Different layout", location = ph_location_label(ph_label = "Title"))
-doc <- ph_with(doc, plot1, location = ph_location_label(ph_label = "Plot"))
